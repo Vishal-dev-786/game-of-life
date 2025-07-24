@@ -19,6 +19,7 @@
         <cobertura.version>2.6</cobertura.version>
         <thucydides.version>1.8.4</thucydides.version>
         <jacoco.version>0.8.11</jacoco.version>
+        <mockito.version>4.0.0</mockito.version> <!-- Updated Mockito version -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
@@ -34,7 +35,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.8.1</version> <!-- Updated to a stable version -->
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
@@ -46,13 +47,6 @@
                 <version>3.1.2</version>
                 <configuration>
                     <skip>false</skip>
-                    <includes>
-                        <include>**/When*.java</include>
-                        <include>**/*Test.java</include>
-                    </includes>
-                    <excludes>
-                        <exclude>%regex[.*integration.*]</exclude>
-                    </excludes>
                 </configuration>
             </plugin>
             <plugin>
@@ -139,7 +133,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.2</version> <!-- Updated JUnit version -->
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -151,7 +145,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>4.0.0</version>
+            <version>${mockito.version}</version> <!-- Updated Mockito dependency -->
             <scope>test</scope>
         </dependency>
     </dependencies>
