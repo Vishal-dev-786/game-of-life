@@ -14,9 +14,16 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <sourceJdk>1.8</sourceJdk>
         <targetJdk>1.8</targetJdk>
-        <mockito.version>4.0.0</mockito.version>
-        <junit.version>4.13.2</junit.version>
+        <easyb.version>1.4</easyb.version>
+        <cobertura.version>2.6</cobertura.version>
+        <thucydides.version>1.8.4</thucydides.version> <!-- Ensure this is defined -->
     </properties>
+
+    <scm>
+        <connection>scm:git:git@github.com:wakaleo/game-of-life.git</connection>
+        <developerConnection>scm:git:git@github.com:wakaleo/game-of-life.git</developerConnection>
+        <url>https://github.com/wakaleo/game-of-life.git</url>
+    </scm>
 
     <build>
         <plugins>
@@ -38,6 +45,11 @@
                         <include>**/*Test.java</include>
                     </includes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.serenity-bdd.maven.plugins</groupId>
+                <artifactId>serenity-maven-plugin</artifactId>
+                <version>${thucydides.version}</version> <!-- Ensure this is defined -->
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -66,13 +78,13 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>${mockito.version}</version>
+            <version>4.0.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -82,4 +94,13 @@
         <module>gameoflife-core</module>
         <module>gameoflife-web</module>
     </modules>
+
+    <profiles>
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
 </project>
